@@ -72,7 +72,6 @@
                 $("#confirm").html(str);
             } else if (key == 'authorize') {
                 var str = JSON.stringify(value, null, 2);
-                alert(str);
                 $("#authorize").html(str);
             }
         });
