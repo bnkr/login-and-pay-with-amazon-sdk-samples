@@ -17,6 +17,14 @@ $config = array('merchant_id'   => $merchant_id,
 // Instantiate the client object with the configuration
 $client = new Client($config);
 
+if (! @$_SESSION['amazon_order_reference_id']) {
+  echo json_encode(array(
+    'authorize' => "not attempted: no reference id in session",
+    'confirm' => "not attempted: no reference id in session",
+  ));
+  exit();
+}
+
 // Create the parameters array to set the order
 $requestParameters = array();
 $requestParameters['amazon_order_reference_id'] = $_SESSION['amazon_order_reference_id'];
