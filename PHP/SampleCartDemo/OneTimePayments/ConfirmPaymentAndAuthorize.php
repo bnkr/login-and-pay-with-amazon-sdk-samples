@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <?php
     session_start();
+    include __DIR__ . "/../config.php";
 ?>
 <html lang="en">
     <head>
-        
-    
+
+
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -48,6 +49,7 @@
             }
         </style>
 
+        <script type='text/javascript' src='<?= $widget_url ?>'></script>
         <script type='text/javascript'>
         $(document).ready(function() {
             $('.start-over').on('click', function() {
