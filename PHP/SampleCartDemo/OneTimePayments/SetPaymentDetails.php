@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <?php
-    session_start();
+session_start();
+include __DIR__ . "/../config.php";
 ?>
 <html lang="en">
     <head>
@@ -62,11 +63,11 @@
 
     <script type='text/javascript'>
         window.onAmazonLoginReady = function () {
-            amazon.Login.setClientId('YOUR_LOGIN_WITH_AMAZON_CLIENT_ID');
+          amazon.Login.setClientId('<?= $client_id ?>');
             amazon.Login.setUseCookie(true);
         };
     </script>
-    <script type='text/javascript' src='https://static-na.payments-amazon.com/OffAmazonPayments/us/sandbox/js/Widgets.js'></script>
+    <script type='text/javascript' src='<?= $widget_url ?>'></script>
 
     </head>
     <body>
@@ -116,7 +117,7 @@
     </div>
     <script type="text/javascript">
         new OffAmazonPayments.Widgets.AddressBook({
-            sellerId: "YOUR_MERCHANT_ID",
+            sellerId: "<?= $merchant_id ?>",
             onOrderReferenceCreate: function (orderReference) {
 
                 /* make a call to the back-end that will set order reference details
@@ -125,7 +126,7 @@
                  *
                  * Get the AddressConsentToken to be sent to the API call
                  */
-               var access_token = "";
+                var access_token = "<?= $_GET['access_token'] ?>";
 
                 $.post("Apicalls/GetDetails.php", {
                     orderReferenceId: orderReference.getAmazonOrderReferenceId(),
@@ -145,7 +146,7 @@
         }).bind("addressBookWidgetDiv");
 
         new OffAmazonPayments.Widgets.Wallet({
-            sellerId: "YOUR_MERCHANT_ID",
+            sellerId: "<?= $merchant_id ?>",
             onPaymentSelect: function (orderReference) {
             },
             design: {

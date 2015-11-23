@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <?php
-    session_start();
+session_start();
+
+include __DIR__ . "/../config.php";
+
 ?>
 <html lang="en">
     <head>
@@ -121,14 +124,14 @@
     <div class="text-center" style="margin-top:40px;" id="AmazonPayButton"></div>
     <script type='text/javascript'>
         window.onAmazonLoginReady = function () {
-            amazon.Login.setClientId('YOUR_LOGIN_WITH_AMAZON_CLIENT_ID');
+            amazon.Login.setClientId('<?= $client_id ?>');
             amazon.Login.setUseCookie(true);
         };
     </script>
-    <script type='text/javascript' src='https://static-na.payments-amazon.com/OffAmazonPayments/us/sandbox/js/Widgets.js'></script>
+<script type='text/javascript' src='<?= $widget_url ?>'></script>
     <script type='text/javascript'>
         var authRequest;
-        OffAmazonPayments.Button("AmazonPayButton", "YOUR_SELLER_ID", {
+          OffAmazonPayments.Button("AmazonPayButton", "<?= $merchant_id ?>", {
             type: "PwA",
             authorization: function () {
                 loginOptions = {scope: "profile postal_code payments:widget payments:shipping_address", popup: true};
