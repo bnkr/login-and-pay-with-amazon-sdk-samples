@@ -161,7 +161,7 @@ include __DIR__ . "/../config.php";
                 </div>
             </div>
 <p>This is the live response from the previous API call.</p>
-<pre id="get_details_response"><div class="text-center"><img src="/images/ajax-loader.gif" /></div></pre>
+<pre id="get_details_response"><div class="text-center"><img src="images/ajax-loader.gif" /></div></pre>
 
             </div>
 

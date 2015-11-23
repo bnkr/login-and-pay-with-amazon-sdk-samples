@@ -202,11 +202,11 @@
             <div class="jumbotron jumbotroncodecolor" style="padding-top:25px;" id="api-calls">
 
 
-<p>This is the live response from the previous API call.</p> 
-<pre id="get_details_response"><div class="text-center"><img src="/images/ajax-loader.gif" /></div></pre>
+<p>This is the live response from the previous API call.</p>
+<pre id="get_details_response"><div class="text-center"><img src="images/ajax-loader.gif" /></div></pre>
 
-            </div>            
-        
+            </div>
+
         </div>
     </body>
 </html>
