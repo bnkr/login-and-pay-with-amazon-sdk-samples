@@ -3,8 +3,8 @@ namespace PayWithAmazon;
 
 session_start();
 
-require_once '../../../PayWithAmazon/Client.php';
-require_once '../../config.php';
+require_once __DIR__ . '/../../config.php';
+require_once $sdk_path . '/PayWithAmazon/Client.php';
 
 $config = array('merchant_id'   => $merchant_id,
                 'access_key'    => $access_key,
